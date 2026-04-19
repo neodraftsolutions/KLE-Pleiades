@@ -43,6 +43,13 @@
             scrollbar-width: none;
         }
 
+        /* Safe Area Padding for iOS Devices */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .pb-safe {
+                padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+            }
+        }
+
         /* --- Moving Stars Background Styles --- */
         #stars-small { width: 1px; height: 1px; background: transparent; animation: animStar 50s linear infinite; }
         #stars-small:after { content: " "; position: absolute; top: 2000px; width: 1px; height: 1px; background: transparent; box-shadow: inherit; }
@@ -84,9 +91,8 @@
     <main class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
         
         <!-- Landing Section -->
-        <section id="home" class="min-h-[85vh] flex flex-col justify-center items-center text-center pt-10 pb-20">
+        <section id="home" class="min-h-[85vh] flex flex-col justify-center items-center text-center pt-10 pb-20 scroll-mt-10">
             
-            <!-- Removed the background, border, padding, and shadow classes from this div -->
             <div class="reveal-target delay-100 relative w-full max-w-[85vw] md:max-w-xl mx-auto mb-8">
                 <img 
                     src="pleides white logo.png" 
@@ -126,54 +132,54 @@
 
             <div class="flex flex-col gap-6">
                 <!-- Website Link -->
-                <a href="https://pleiades.kletech.ac.in/" target="_blank" rel="noopener noreferrer" class="reveal-target delay-100 group relative flex flex-col md:flex-row items-start md:items-center p-6 md:p-8 rounded-[2rem] bg-white/5 border border-yellow-500/30 shadow-[0_8px_30px_rgba(250,204,21,0.1)] backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-yellow-400/60 hover:shadow-[0_20px_40px_rgba(250,204,21,0.2)] active:scale-95">
+                <a href="https://pleiades.kletech.ac.in/" target="_blank" rel="noopener noreferrer" class="reveal-target delay-100 group relative flex flex-row items-center p-5 md:p-8 rounded-[2rem] bg-white/5 border border-yellow-500/30 shadow-[0_8px_30px_rgba(250,204,21,0.1)] backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-yellow-400/60 hover:shadow-[0_20px_40px_rgba(250,204,21,0.2)] active:scale-95">
                     <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/0 via-yellow-500/5 to-yellow-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                    <div class="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-black/50 border border-yellow-500/20 shadow-sm mr-6 mb-4 md:mb-0 group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="globe" class="w-8 h-8 text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]"></i>
+                    <div class="relative z-10 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-2xl bg-black/50 border border-yellow-500/20 shadow-sm mr-4 md:mr-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="globe" class="w-7 h-7 md:w-8 md:h-8 text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.5)]"></i>
                     </div>
-                    <div class="relative z-10 flex-1 w-full">
-                        <div class="flex justify-between items-center w-full mb-1">
-                            <h3 class="text-xl font-bold text-gray-100 group-hover:text-yellow-400 transition-colors">Official Website & Registrations</h3>
-                            <span class="text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full border bg-yellow-500/20 text-yellow-300 border-yellow-500/30">Live Now</span>
+                    <div class="relative z-10 flex-1 min-w-0">
+                        <div class="flex justify-between items-center w-full mb-1 gap-2">
+                            <h3 class="text-lg md:text-xl font-bold text-gray-100 group-hover:text-yellow-400 transition-colors truncate">Official Website & Registrations</h3>
+                            <span class="text-[10px] sm:text-xs font-bold px-2 md:px-3 py-1 rounded-full border bg-yellow-500/20 text-yellow-300 border-yellow-500/30 shrink-0">Live Now</span>
                         </div>
-                        <p class="text-sm text-gray-400 font-medium group-hover:text-gray-300">Browse schedule, register for events, and view leaderboards.</p>
+                        <p class="text-xs md:text-sm text-gray-400 font-medium group-hover:text-gray-300 line-clamp-2">Browse schedule, register for events, and view leaderboards.</p>
                     </div>
-                    <div class="relative z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 ml-6 group-hover:bg-yellow-500/20 transition-colors border border-transparent group-hover:border-yellow-500/30">
+                    <div class="relative z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 ml-6 shrink-0 group-hover:bg-yellow-500/20 transition-colors border border-transparent group-hover:border-yellow-500/30">
                         <i data-lucide="chevron-right" class="w-5 h-5 text-gray-500 group-hover:text-yellow-400 group-hover:translate-x-0.5 transition-all"></i>
                     </div>
                 </a>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- WhatsApp AI Link -->
-                    <a href="https://wa.me/919187621976?text=Hello%0APlease%20answer%20all%20my%20queries%20in%20systematic%20points" target="_blank" rel="noopener noreferrer" class="reveal-target delay-200 group relative flex flex-col md:flex-row items-start md:items-center p-6 md:p-8 rounded-[2rem] bg-white/5 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-yellow-500/40 hover:shadow-[0_20px_40px_rgba(250,204,21,0.1)] active:scale-95">
-                        <div class="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-black/50 border border-white/10 shadow-sm mr-6 mb-4 md:mb-0 group-hover:scale-110 group-hover:border-green-500/50 transition-all duration-300">
-                            <i data-lucide="message-circle" class="w-8 h-8 text-green-400 drop-shadow-[0_0_8px_rgba(74,222,128,0.5)]"></i>
+                    <a href="https://wa.me/919187621976?text=Hello%0APlease%20answer%20all%20my%20queries%20in%20systematic%20points" target="_blank" rel="noopener noreferrer" class="reveal-target delay-200 group relative flex flex-row items-center p-5 md:p-8 rounded-[2rem] bg-white/5 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-yellow-500/40 hover:shadow-[0_20px_40px_rgba(250,204,21,0.1)] active:scale-95">
+                        <div class="relative z-10 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-2xl bg-black/50 border border-white/10 shadow-sm mr-4 md:mr-6 group-hover:scale-110 group-hover:border-green-500/50 transition-all duration-300">
+                            <i data-lucide="message-circle" class="w-7 h-7 md:w-8 md:h-8 text-green-400 drop-shadow-[0_0_8px_rgba(74,222,128,0.5)]"></i>
                         </div>
-                        <div class="relative z-10 flex-1 w-full">
-                            <div class="flex justify-between items-center w-full mb-1">
-                                <h3 class="text-xl font-bold text-gray-100 group-hover:text-yellow-400 transition-colors">Ask Pleiades AI</h3>
-                                <span class="text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full border bg-green-500/20 text-green-300 border-green-500/30">AI Bot</span>
+                        <div class="relative z-10 flex-1 min-w-0">
+                            <div class="flex justify-between items-center w-full mb-1 gap-2">
+                                <h3 class="text-lg md:text-xl font-bold text-gray-100 group-hover:text-yellow-400 transition-colors truncate">Ask Pleiades AI</h3>
+                                <span class="text-[10px] sm:text-xs font-bold px-2 md:px-3 py-1 rounded-full border bg-green-500/20 text-green-300 border-green-500/30 shrink-0">AI Bot</span>
                             </div>
-                            <p class="text-sm text-gray-400 font-medium group-hover:text-gray-300">Instant 24/7 WhatsApp assistance for all your queries.</p>
+                            <p class="text-xs md:text-sm text-gray-400 font-medium group-hover:text-gray-300 line-clamp-2">Instant 24/7 WhatsApp assistance for all your queries.</p>
                         </div>
-                        <div class="relative z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 ml-6 group-hover:bg-yellow-500/20 transition-colors border border-transparent group-hover:border-yellow-500/30">
+                        <div class="relative z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 ml-6 shrink-0 group-hover:bg-yellow-500/20 transition-colors border border-transparent group-hover:border-yellow-500/30">
                             <i data-lucide="chevron-right" class="w-5 h-5 text-gray-500 group-hover:text-yellow-400 group-hover:translate-x-0.5 transition-all"></i>
                         </div>
                     </a>
                     
                     <!-- Instagram Link -->
-                    <a href="https://www.instagram.com/pleiades_kletu/" target="_blank" rel="noopener noreferrer" class="reveal-target delay-300 group relative flex flex-col md:flex-row items-start md:items-center p-6 md:p-8 rounded-[2rem] bg-white/5 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-yellow-500/40 hover:shadow-[0_20px_40px_rgba(250,204,21,0.1)] active:scale-95">
-                        <div class="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-black/50 border border-white/10 shadow-sm mr-6 mb-4 md:mb-0 group-hover:scale-110 group-hover:border-pink-500/50 transition-all duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-pink-400 drop-shadow-[0_0_8px_rgba(244,114,182,0.5)]"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+                    <a href="https://www.instagram.com/pleiades_kletu/" target="_blank" rel="noopener noreferrer" class="reveal-target delay-300 group relative flex flex-row items-center p-5 md:p-8 rounded-[2rem] bg-white/5 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.2)] backdrop-blur-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:bg-white/10 hover:border-yellow-500/40 hover:shadow-[0_20px_40px_rgba(250,204,21,0.1)] active:scale-95">
+                        <div class="relative z-10 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-2xl bg-black/50 border border-white/10 shadow-sm mr-4 md:mr-6 group-hover:scale-110 group-hover:border-pink-500/50 transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 md:w-8 md:h-8 text-pink-400 drop-shadow-[0_0_8px_rgba(244,114,182,0.5)]"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
                         </div>
-                        <div class="relative z-10 flex-1 w-full">
-                            <div class="flex justify-between items-center w-full mb-1">
-                                <h3 class="text-xl font-bold text-gray-100 group-hover:text-yellow-400 transition-colors">Instagram Page</h3>
-                                <span class="text-[10px] sm:text-xs font-bold px-3 py-1 rounded-full border bg-pink-500/20 text-pink-300 border-pink-500/30">@pleiades_kletu</span>
+                        <div class="relative z-10 flex-1 min-w-0">
+                            <div class="flex justify-between items-center w-full mb-1 gap-2">
+                                <h3 class="text-lg md:text-xl font-bold text-gray-100 group-hover:text-yellow-400 transition-colors truncate">Instagram Page</h3>
+                                <span class="text-[10px] sm:text-xs font-bold px-2 md:px-3 py-1 rounded-full border bg-pink-500/20 text-pink-300 border-pink-500/30 shrink-0">@pleiades</span>
                             </div>
-                            <p class="text-sm text-gray-400 font-medium group-hover:text-gray-300">Follow us for sneak peeks, daily updates & memories.</p>
+                            <p class="text-xs md:text-sm text-gray-400 font-medium group-hover:text-gray-300 line-clamp-2">Follow us for sneak peeks, daily updates & memories.</p>
                         </div>
-                        <div class="relative z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 ml-6 group-hover:bg-yellow-500/20 transition-colors border border-transparent group-hover:border-yellow-500/30">
+                        <div class="relative z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 ml-6 shrink-0 group-hover:bg-yellow-500/20 transition-colors border border-transparent group-hover:border-yellow-500/30">
                             <i data-lucide="chevron-right" class="w-5 h-5 text-gray-500 group-hover:text-yellow-400 group-hover:translate-x-0.5 transition-all"></i>
                         </div>
                     </a>
@@ -182,7 +188,7 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20 relative">
+        <section id="about" class="py-20 relative scroll-mt-10">
             <div class="reveal-target absolute inset-0 bg-gradient-to-b from-yellow-900/10 to-[#050505] rounded-[3rem] pointer-events-none"></div>
             <div class="reveal-target relative p-8 md:p-16 rounded-[3rem] bg-white/5 border border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.5)] backdrop-blur-xl text-center">
                 <h2 class="text-3xl font-bold text-white mb-6">About Pleiades</h2>
@@ -206,7 +212,7 @@
 
             <!-- Swipeable Container -->
             <div class="reveal-target flex overflow-x-auto gap-4 md:gap-6 pb-8 snap-x snap-mandatory hide-scrollbar">
-                <div class="min-w-[85vw] md:min-w-[280px] snap-center p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(250,204,21,0.15)] hover:border-yellow-500/40 transition-all duration-300 group backdrop-blur-md">
+                <div class="min-w-[75vw] md:min-w-[280px] snap-center p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(250,204,21,0.15)] hover:border-yellow-500/40 transition-all duration-300 group backdrop-blur-md">
                     <div class="w-14 h-14 rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center mb-6 group-hover:border-yellow-500/50 transition-colors">
                         <i data-lucide="cpu" class="w-7 h-7 text-yellow-400"></i>
                     </div>
@@ -214,7 +220,7 @@
                     <p class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300">Hackathons, coding challenges, robotics, and paper presentations.</p>
                 </div>
 
-                <div class="min-w-[85vw] md:min-w-[280px] snap-center p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(250,204,21,0.15)] hover:border-yellow-500/40 transition-all duration-300 group backdrop-blur-md">
+                <div class="min-w-[75vw] md:min-w-[280px] snap-center p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(250,204,21,0.15)] hover:border-yellow-500/40 transition-all duration-300 group backdrop-blur-md">
                     <div class="w-14 h-14 rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center mb-6 group-hover:border-yellow-500/50 transition-colors">
                         <i data-lucide="music" class="w-7 h-7 text-yellow-400"></i>
                     </div>
@@ -222,7 +228,7 @@
                     <p class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300">Dance battles, battle of bands, fashion shows, and theatrical plays.</p>
                 </div>
 
-                <div class="min-w-[85vw] md:min-w-[280px] snap-center p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(250,204,21,0.15)] hover:border-yellow-500/40 transition-all duration-300 group backdrop-blur-md">
+                <div class="min-w-[75vw] md:min-w-[280px] snap-center p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(250,204,21,0.15)] hover:border-yellow-500/40 transition-all duration-300 group backdrop-blur-md">
                     <div class="w-14 h-14 rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center mb-6 group-hover:border-yellow-500/50 transition-colors">
                         <i data-lucide="book-open" class="w-7 h-7 text-yellow-400"></i>
                     </div>
@@ -230,7 +236,7 @@
                     <p class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300">Hands-on sessions by industry experts on trending technologies.</p>
                 </div>
 
-                <div class="min-w-[85vw] md:min-w-[280px] snap-center p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(250,204,21,0.15)] hover:border-yellow-500/40 transition-all duration-300 group backdrop-blur-md">
+                <div class="min-w-[75vw] md:min-w-[280px] snap-center p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 shadow-lg hover:shadow-[0_0_25px_rgba(250,204,21,0.15)] hover:border-yellow-500/40 transition-all duration-300 group backdrop-blur-md">
                     <div class="w-14 h-14 rounded-2xl bg-black/50 border border-white/10 flex items-center justify-center mb-6 group-hover:border-yellow-500/50 transition-colors">
                         <i data-lucide="trophy" class="w-7 h-7 text-yellow-400"></i>
                     </div>
@@ -279,6 +285,9 @@
         </div>
         <div class="text-center text-gray-600 text-xs mt-8 font-medium">
             <p>&copy; <span id="year"></span> Pleiades KLE Tech. All Rights Reserved.</p>
+            <p class="mt-2 text-gray-500">
+                Powered by <a href="https://neodraftsolutions.me/neo/" target="_blank" rel="noopener noreferrer" class="text-yellow-500 hover:text-yellow-400 font-bold transition-colors">NEO DRAFT SOLUTIONS</a>
+            </p>
         </div>
     </footer>
 
@@ -288,24 +297,24 @@
     </a>
 
     <!-- Sticky Bottom Navigation - Mobile Only -->
-    <nav class="fixed md:hidden z-40 bottom-0 left-0 w-full bg-[#050505]/90 backdrop-blur-xl border-t border-white/10 pb-safe pt-2 px-6 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
-        <ul class="flex justify-between items-center h-16">
-            <li>
-                <a href="#home" class="flex flex-col items-center gap-1 text-gray-500 hover:text-yellow-400 transition-colors">
-                    <i data-lucide="home" class="w-5 h-5"></i>
-                    <span class="text-[10px] font-bold">Home</span>
+    <nav class="fixed md:hidden z-40 bottom-0 left-0 w-full bg-[#050505]/90 backdrop-blur-xl border-t border-white/10 pb-safe pt-2 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
+        <ul class="flex justify-between items-center h-16 w-full px-2">
+            <li class="flex-1 h-full">
+                <a href="#home" data-target="home" class="nav-link w-full h-full flex flex-col items-center justify-center gap-1 text-yellow-400 transition-colors">
+                    <i data-lucide="home" class="w-5 h-5 pointer-events-none"></i>
+                    <span class="text-[10px] font-bold pointer-events-none">Home</span>
                 </a>
             </li>
-            <li>
-                <a href="#dashboard" class="flex flex-col items-center gap-1 text-gray-500 hover:text-yellow-400 transition-colors">
-                    <i data-lucide="link" class="w-5 h-5"></i>
-                    <span class="text-[10px] font-bold">Links</span>
+            <li class="flex-1 h-full">
+                <a href="#dashboard" data-target="dashboard" class="nav-link w-full h-full flex flex-col items-center justify-center gap-1 text-gray-500 hover:text-yellow-400 transition-colors">
+                    <i data-lucide="link" class="w-5 h-5 pointer-events-none"></i>
+                    <span class="text-[10px] font-bold pointer-events-none">Links</span>
                 </a>
             </li>
-            <li>
-                <a href="#about" class="flex flex-col items-center gap-1 text-gray-500 hover:text-yellow-400 transition-colors">
-                    <i data-lucide="info" class="w-5 h-5"></i>
-                    <span class="text-[10px] font-bold">About</span>
+            <li class="flex-1 h-full">
+                <a href="#about" data-target="about" class="nav-link w-full h-full flex flex-col items-center justify-center gap-1 text-gray-500 hover:text-yellow-400 transition-colors">
+                    <i data-lucide="info" class="w-5 h-5 pointer-events-none"></i>
+                    <span class="text-[10px] font-bold pointer-events-none">About</span>
                 </a>
             </li>
         </ul>
@@ -367,6 +376,35 @@
         const elements = document.querySelectorAll('.reveal-target');
         
         elements.forEach((el) => observer.observe(el));
+
+        // 7. Active State Observer for Mobile Bottom Navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        const navObserverOptions = {
+            threshold: 0.2, // Trigger when 20% of section is visible
+            rootMargin: "-20% 0px -40% 0px" // Offset triggering to vertical center-ish
+        };
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const targetId = entry.target.id;
+                    navLinks.forEach(link => {
+                        if (link.dataset.target === targetId) {
+                            link.classList.remove('text-gray-500');
+                            link.classList.add('text-yellow-400');
+                        } else {
+                            link.classList.remove('text-yellow-400');
+                            link.classList.add('text-gray-500');
+                        }
+                    });
+                }
+            });
+        }, navObserverOptions);
+
+        sections.forEach(section => navObserver.observe(section));
+
     </script>
 </body>
 </html>
